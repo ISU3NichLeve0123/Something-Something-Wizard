@@ -64,9 +64,29 @@ namespace Something_Something_Wizards.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
         ///.
         /// </summary>
-        internal static string ProfileXML {
+        internal static string Profile {
             get {
-                return ResourceManager.GetString("ProfileXML", resourceCulture);
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PURGATORY {
+            get {
+                object obj = ResourceManager.GetObject("PURGATORY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Questionable_Question_Mark {
+            get {
+                object obj = ResourceManager.GetObject("Questionable_Question_Mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

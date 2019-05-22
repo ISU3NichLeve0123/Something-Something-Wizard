@@ -32,7 +32,7 @@
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.inputNameTextBox = new System.Windows.Forms.TextBox();
-            this.errorLabel1 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.continueButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -74,22 +74,22 @@
             this.inputNameTextBox.Size = new System.Drawing.Size(349, 20);
             this.inputNameTextBox.TabIndex = 3;
             // 
-            // errorLabel1
+            // errorLabel
             // 
-            this.errorLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.errorLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorLabel1.ForeColor = System.Drawing.Color.DarkRed;
-            this.errorLabel1.Location = new System.Drawing.Point(3, 422);
-            this.errorLabel1.Name = "errorLabel1";
-            this.errorLabel1.Size = new System.Drawing.Size(813, 67);
-            this.errorLabel1.TabIndex = 4;
+            this.errorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLabel.Location = new System.Drawing.Point(3, 364);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(813, 67);
+            this.errorLabel.TabIndex = 4;
             // 
             // continueButton
             // 
             this.continueButton.BackColor = System.Drawing.Color.Black;
             this.continueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.Cyan;
-            this.continueButton.Location = new System.Drawing.Point(350, 339);
+            this.continueButton.Location = new System.Drawing.Point(349, 316);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(142, 64);
             this.continueButton.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.BackgroundImage = global::Something_Something_Wizards.Properties.Resources.Wizardry_Logo;
             this.Controls.Add(this.continueButton);
-            this.Controls.Add(this.errorLabel1);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.inputNameTextBox);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.welcomeLabel);
@@ -118,7 +118,7 @@
         private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox inputNameTextBox;
-        private System.Windows.Forms.Label errorLabel1;
+        private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button continueButton;
     }
 }
