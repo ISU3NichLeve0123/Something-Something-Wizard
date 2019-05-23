@@ -77,6 +77,12 @@
     <Compile Include="Screens\HowToScreen.Designer.cs">
       <DependentUpon>HowToScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\ProfileScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\ProfileScreen.Designer.cs">
+      <DependentUpon>ProfileScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\ProfileScreen.resx">
+      <DependentUpon>ProfileScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +120,8 @@
     <Content Include="Profile.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\Cat Of Hell.jpg" />
+    <None Include="Resources\alexandra-ioileva-a-catfromhell.jpg" />
     <None Include="Resources\Questionable Question Mark.png" />
     <None Include="Resources\PURGATORY.jpg" />
   </ItemGroup>

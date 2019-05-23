@@ -13,6 +13,7 @@ namespace Something_Something_Wizards
 {
     public partial class Form1 : Form
     {
+        public static string name;
         public Form1()
         {
             InitializeComponent();

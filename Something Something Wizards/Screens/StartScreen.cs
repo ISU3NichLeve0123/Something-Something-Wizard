@@ -41,6 +41,7 @@ namespace Something_Something_Wizards
                 f.Controls.Remove(this);
                 f.Controls.Add(g);
                 g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+                Form1.name = inputNameTextBox.Text;
             }
           else
             {

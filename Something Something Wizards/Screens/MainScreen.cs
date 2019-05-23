@@ -31,7 +31,21 @@ namespace Something_Something_Wizards
 
         private void howToPlayButton_Click(object sender, EventArgs e)
         {
+            Form f = this.FindForm();
+            HowToScreen g = new HowToScreen();
+            f.Controls.Remove(this);
+            f.Controls.Add(g);
+            g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+        }
 
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            Form f = this.FindForm();
+            ProfileScreen g = new ProfileScreen();
+            f.Controls.Remove(this);
+            f.Controls.Add(g);
+            g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
         }
     }
-}
+    }
+
