@@ -20,10 +20,6 @@ namespace Something_Something_Wizards
 
         private void button1_Click(object sender, EventArgs e)
         {
-            errorLabel.Text = "";
-           
-         if (!int.TryParse(inputNameTextBox.Text, out int output))
-            {
                 XmlWriter writer = XmlWriter.Create("Resources/Profile.xml", null);
                 writer.WriteStartElement("Wizard");
                 //Start an element 
@@ -42,12 +38,7 @@ namespace Something_Something_Wizards
                 f.Controls.Add(g);
                 g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
                 Form1.name = inputNameTextBox.Text;
-            }
-          else
-            {
-                inputNameTextBox.Text = "";
-                errorLabel.Text = "Invalid Input, please try again";
-            }  
+              
         }
     }
 }

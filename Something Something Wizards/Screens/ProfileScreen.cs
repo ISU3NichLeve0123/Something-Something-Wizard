@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Something_Something_Wizards
 {
@@ -29,13 +30,37 @@ namespace Something_Something_Wizards
 
         private void changeNameButton_Click(object sender, EventArgs e)
         {
-            saveNameButton.Visible = true;
+            saveNameButtons.Visible = true;
             nameOutputlLabel.Text = "";
             nameInputTextBox.Visible = true;
             currentNameLabel.Text = "New Name";
             profileLabel.Text = "Change Name";
             mainMenuButton.Visible = false;
 
+        }
+
+        private void saveNameButtons_Click(object sender, EventArgs e)
+        {
+                XmlWriter writer = XmlWriter.Create("Resources/Profile.xml", null);
+                writer.WriteStartElement("Wizard");
+                //Start an element 
+                writer.WriteStartElement("Profile");
+                //Write sub-elements 
+                writer.WriteElementString("name", nameInputTextBox.Text);
+                // end the element 
+                writer.WriteEndElement();
+                // end the root element 
+                writer.WriteEndElement();
+                //Write the XML to file and close the writer 
+                writer.Close();
+                Form1.name = nameInputTextBox.Text;
+                nameInputTextBox.Text = "";
+                saveNameButtons.Visible = false;
+                nameOutputlLabel.Text = Form1.name;
+                nameInputTextBox.Visible = false;
+                currentNameLabel.Text = "Current name";
+                profileLabel.Text = "Profile";
+                mainMenuButton.Visible = true;               
         }
     }
     }

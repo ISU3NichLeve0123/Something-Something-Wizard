@@ -37,6 +37,7 @@
             this.nameInputTextBox = new System.Windows.Forms.TextBox();
             this.saveNameButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.saveNameButtons = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // profileLabel
@@ -44,9 +45,9 @@
             this.profileLabel.BackColor = System.Drawing.Color.Transparent;
             this.profileLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileLabel.ForeColor = System.Drawing.Color.Red;
-            this.profileLabel.Location = new System.Drawing.Point(240, 0);
+            this.profileLabel.Location = new System.Drawing.Point(3, 0);
             this.profileLabel.Name = "profileLabel";
-            this.profileLabel.Size = new System.Drawing.Size(549, 97);
+            this.profileLabel.Size = new System.Drawing.Size(810, 112);
             this.profileLabel.TabIndex = 0;
             this.profileLabel.Text = "Profile";
             // 
@@ -76,7 +77,7 @@
             this.changeNameButton.BackColor = System.Drawing.Color.Transparent;
             this.changeNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeNameButton.ForeColor = System.Drawing.Color.Red;
-            this.changeNameButton.Location = new System.Drawing.Point(259, 250);
+            this.changeNameButton.Location = new System.Drawing.Point(258, 250);
             this.changeNameButton.Name = "changeNameButton";
             this.changeNameButton.Size = new System.Drawing.Size(232, 62);
             this.changeNameButton.TabIndex = 3;
@@ -129,11 +130,25 @@
             this.errorLabel.TabIndex = 7;
             this.errorLabel.UseCompatibleTextRendering = true;
             // 
+            // saveNameButtons
+            // 
+            this.saveNameButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.saveNameButtons.ForeColor = System.Drawing.Color.Red;
+            this.saveNameButtons.Location = new System.Drawing.Point(259, 250);
+            this.saveNameButtons.Name = "saveNameButtons";
+            this.saveNameButtons.Size = new System.Drawing.Size(232, 62);
+            this.saveNameButtons.TabIndex = 8;
+            this.saveNameButtons.Text = "Save Name";
+            this.saveNameButtons.UseVisualStyleBackColor = true;
+            this.saveNameButtons.Visible = false;
+            this.saveNameButtons.Click += new System.EventHandler(this.saveNameButtons_Click);
+            // 
             // ProfileScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.Controls.Add(this.saveNameButtons);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.saveNameButton);
             this.Controls.Add(this.nameInputTextBox);
@@ -159,5 +174,6 @@
         private System.Windows.Forms.TextBox nameInputTextBox;
         private System.Windows.Forms.Button saveNameButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button saveNameButtons;
     }
 }
