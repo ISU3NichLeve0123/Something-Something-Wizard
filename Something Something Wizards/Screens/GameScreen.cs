@@ -19,10 +19,15 @@ namespace Something_Something_Wizards
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-
+            foreach()
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GameScreen_Load(object sender, EventArgs e)
         {
 
         }

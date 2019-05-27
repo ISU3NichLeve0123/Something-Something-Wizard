@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\Dark Wizard.cs" />
+    <Compile Include="Classes\Lightining Wizard.cs" />
+    <Compile Include="Classes\MEGAMEME%28Fire Wizard%29.cs" />
+    <Compile Include="OrignalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="OrignalForm.Designer.cs">
+      <DependentUpon>OrignalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\GameScreen.cs">
       <SubType>UserControl</SubType>
@@ -89,6 +92,13 @@
     <Compile Include="Screens\ProfileScreen.Designer.cs">
       <DependentUpon>ProfileScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\WizardSelectionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\WizardSelectionScreen.Designer.cs">
+      <DependentUpon>WizardSelectionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Wizards.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -108,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\ProfileScreen.resx">
       <DependentUpon>ProfileScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\WizardSelectionScreen.resx">
+      <DependentUpon>WizardSelectionScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,6 +142,10 @@
     <Content Include="Profile.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\Light Wizard.jpg" />
+    <None Include="Resources\FUCK DIMA.jpg" />
+    <None Include="Resources\Dima is a shit influence.jpg" />
+    <None Include="Resources\Wizard1.bmp" />
     <None Include="Resources\Cat Of Hell.jpg" />
     <None Include="Resources\alexandra-ioileva-a-catfromhell.jpg" />
     <None Include="Resources\Questionable Question Mark.png" />

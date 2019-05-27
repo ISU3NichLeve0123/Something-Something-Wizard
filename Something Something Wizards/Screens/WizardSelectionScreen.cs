@@ -10,51 +10,51 @@ using System.Windows.Forms;
 
 namespace Something_Something_Wizards
 {
-    public partial class MainScreen : UserControl
+    public partial class WizardSelectionScreen : UserControl
     {
-        int counter = 0;
-        public MainScreen()
+        public WizardSelectionScreen()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void WizardSelectionScreen_Paint(object sender, PaintEventArgs e)
         {
-            errorLabel.Text = "Why do you want to leave this place? It's so MAGICAL";
-            counter++;
-            if(counter >= 10)
-            {
-                Application.Exit();
-            }
 
+            e.Graphics.DrawImage(Properties.Resources.FUCK_DIMA,50, 100);
+
+            e.Graphics.DrawImage(Properties.Resources.Dima_is_a_shit_influence, 300, 100);
+
+            e.Graphics.DrawImage(Properties.Resources.Light_Wizard, 600, 100);
         }
 
-        private void howToPlayButton_Click(object sender, EventArgs e)
+        private void darknessWizardButton_Click(object sender, EventArgs e)
         {
+            OrignalForm.player_Charcter = 1;
             Form f = this.FindForm();
-            HowToScreen g = new HowToScreen();
+            GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
         }
 
-        private void profileButton_Click(object sender, EventArgs e)
+        private void fireWizardButton_Click(object sender, EventArgs e)
         {
+            OrignalForm.player_Charcter = 2;
             Form f = this.FindForm();
-            ProfileScreen g = new ProfileScreen();
+            GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
         }
 
-        private void playButton_Click(object sender, EventArgs e)
+        private void lightiningWizardButton_Click(object sender, EventArgs e)
         {
+            OrignalForm.player_Charcter = 3;
             Form f = this.FindForm();
-            WizardSelectionScreen g = new WizardSelectionScreen();
+            GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
         }
     }
-    }
-
+}

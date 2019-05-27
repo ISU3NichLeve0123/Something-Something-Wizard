@@ -16,7 +16,7 @@ namespace Something_Something_Wizards
         public ProfileScreen()
         {
             InitializeComponent();
-            nameOutputlLabel.Text = Form1.name;
+            nameOutputlLabel.Text = OrignalForm.name;
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)
@@ -53,10 +53,10 @@ namespace Something_Something_Wizards
                 writer.WriteEndElement();
                 //Write the XML to file and close the writer 
                 writer.Close();
-                Form1.name = nameInputTextBox.Text;
+                OrignalForm.name = nameInputTextBox.Text;
                 nameInputTextBox.Text = "";
                 saveNameButtons.Visible = false;
-                nameOutputlLabel.Text = Form1.name;
+                nameOutputlLabel.Text = OrignalForm.name;
                 nameInputTextBox.Visible = false;
                 currentNameLabel.Text = "Current name";
                 profileLabel.Text = "Profile";

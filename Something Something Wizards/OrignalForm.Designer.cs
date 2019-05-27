@@ -1,6 +1,6 @@
 ﻿namespace Something_Something_Wizards
 {
-    partial class Form1
+    partial class OrignalForm
     {
         /// <summary>
         /// Required designer variable.

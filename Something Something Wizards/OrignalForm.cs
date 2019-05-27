@@ -11,10 +11,11 @@ using System.Windows.Forms;
 
 namespace Something_Something_Wizards
 {
-    public partial class Form1 : Form
+    public partial class OrignalForm : Form
     {
         public static string name;
-        public Form1()
+        public static int player_Charcter = 0;
+        public OrignalForm()
         {
             InitializeComponent();
             StartScreen g = new StartScreen();
