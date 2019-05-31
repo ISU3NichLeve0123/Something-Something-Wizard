@@ -77,6 +77,7 @@
             this.playButton.TabIndex = 3;
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // HowToScreen
             // 

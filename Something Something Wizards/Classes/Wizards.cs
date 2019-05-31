@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace Something_Something_Wizards
 {
-    class Wizards
+     public class Wizards
     {
-        public void Wizard(int _X,int _Y, int _Mana, int _Health, int _WizardSelection, string _name)
+        public int x, y, mana, health, wizardSelection;
+        public string name;
+
+        public Wizards()
         {
-            int X = _X;
-            int Y = _Y;
-            int Mana = _Mana;
-            int Health = _Health;
-            int WizardSelection= _WizardSelection;
-            string Name = _name;
+            health = 20;
+            mana = 10;
+            x = 0;
+            y = 100;
+        }
+
+        public Wizards(int _X,int _Y, int _Mana, int _Health, int _WizardSelection, string _name)
+        {
+            x= _X;
+            y = _Y;
+            mana = _Mana;
+            health = _Health;
+            wizardSelection= _WizardSelection;
+            name = _name;
         }
     }
 }

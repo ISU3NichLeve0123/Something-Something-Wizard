@@ -14,9 +14,10 @@ namespace Something_Something_Wizards
     public partial class OrignalForm : Form
     {
         public static string name;
-        public static int player_Charcter = 0;
+        public static int player_Charcter = 0;      
         public OrignalForm()
         {
+            
             InitializeComponent();
             StartScreen g = new StartScreen();
             this.Controls.Add(g);

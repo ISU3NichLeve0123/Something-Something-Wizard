@@ -25,5 +25,10 @@ namespace Something_Something_Wizards
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
         }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

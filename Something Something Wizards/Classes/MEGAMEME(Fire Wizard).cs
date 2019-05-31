@@ -4,10 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Something_Something_Wizards.Classes
+namespace Something_Something_Wizards
 {
-    class MEGAMEME_Fire_Wizard_ : Wizards
-    { public void エクスプロション()
+   public class MEGAMEME_Fire_Wizard_ : Wizards
+    {
+       public  MEGAMEME_Fire_Wizard_()
+        {
+            name = OrignalForm.name;
+            wizardSelection = 2;
+        }
+        
+        public void Explosion()
         {
             
         }

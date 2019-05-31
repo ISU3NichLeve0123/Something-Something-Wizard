@@ -12,6 +12,11 @@ namespace Something_Something_Wizards
 {
     public partial class WizardSelectionScreen : UserControl
     {
+        int wizardX = 100;
+        int wizardY = 100;
+        int health = 20;
+        int mana = 10;
+
         public WizardSelectionScreen()
         {
             InitializeComponent();
@@ -30,31 +35,37 @@ namespace Something_Something_Wizards
         private void darknessWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 1;
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, OrignalForm.name);
             Form f = this.FindForm();
             GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+           
         }
 
         private void fireWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 2;
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, OrignalForm.name);
             Form f = this.FindForm();
             GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+           
         }
 
         private void lightiningWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 3;
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, OrignalForm.name);
             Form f = this.FindForm();
             GameScreen g = new GameScreen();
             f.Controls.Remove(this);
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+
         }
     }
 }
