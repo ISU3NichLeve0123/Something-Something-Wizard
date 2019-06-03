@@ -12,9 +12,12 @@ namespace Something_Something_Wizards
 {
     public partial class GameScreen : UserControl
     {
+        bool zKey, cKey, xKey, vKey, attackPhase;
         int screenSelector = 0;
         int attackSelector = 0;
         Pen drawPen = new Pen(Color.Black);
+        Font drawFont = new Font("Arial", 30);
+        SolidBrush drawBrush = new SolidBrush(Color.Green);
         Death_Wizard dk = new Death_Wizard();
         Lightining_Wizard lk = new Lightining_Wizard();
         MEGAMEME_Fire_Wizard_ mega = new MEGAMEME_Fire_Wizard_();
@@ -28,9 +31,71 @@ namespace Something_Something_Wizards
         {
             //switch)
         }
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
 
+            switch (attackSelector)
+            {
+                case 1:
+                    dk.DeathEyes();
+                    break;
+            }
+        }
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.C:
+                    cKey = false;
+                    break;
+                case Keys.V:
+                    vKey = false;
+                    break;
+                case Keys.X:
+                    xKey = false;
+                    break;
+                case Keys.Left:
+                    zKey = false;
+                    break;
+            }
+        }
+
+        private void changeScreen()
+        {
+
+        }
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.C:
+                    cKey = true;
+                    break;
+                case Keys.V:
+                    vKey = true;
+                    break;
+                case Keys.X:
+                    xKey = true;
+                    break;
+                case Keys.Z:
+                    zKey = true;
+                    attackPhase = true;
+                    break;
+            }
+        }
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            if (zKey == false && attackPhase == false)
+            {
+                e.Graphics.DrawString("Attack", drawFont, drawBrush, 100, 330);
+                drawBrush.Color = Color.SkyBlue;
+                e.Graphics.DrawString("Defend", drawFont, drawBrush, 500, 330);
+                drawBrush.Color = Color.Red;
+                e.Graphics.DrawString("Pass", drawFont, drawBrush, 90, 410);
+                drawBrush.Color = Color.Yellow;
+                e.Graphics.DrawString("Useless", drawFont, drawBrush, 500, 410);
+                drawBrush.Color = Color.Green;
+            }
 
             switch (OrignalForm.player_Charcter)
             {
@@ -44,87 +109,48 @@ namespace Something_Something_Wizards
                     e.Graphics.DrawImage(Properties.Resources.Light_Wizard, lk.x, lk.y);
                     break;
             }
-            switch(attackSelector)
+            e.Graphics.DrawString("What Will You Do?", drawFont, drawBrush, 200, 0);
+            switch (attackSelector)
             {
                 case 1:
-                    switch(OrignalForm.player_Charcter)
+                    switch (OrignalForm.player_Charcter)
                     {
                         case 1:
                             e.Graphics.DrawRectangle(drawPen, dk.objectX, dk.objectY, 200, 200);
                             break;
-                    }               
-                break;
-            }
-            Refresh();
-        }
-
-        private void gameTimer_Tick(object sender, EventArgs e)
-        {
-        if(screenSelector == 1 || screenSelector== 2 || screenSelector== 3)
-            {
-                changeScreen();
-            }
-
-            switch (attackSelector)
-            {
-                case 1:
-                        dk.DeathEyes();                                    
-               break;
-            }
-        }
-
-        private void GameScreen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void attackButton_Click(object sender, EventArgs e)
-        {
-            screenSelector = 1;
-        }
-
-        private void changeScreen()
-        {
-            switch (screenSelector)
-            {
-                case 1:
-                    attackButton.Visible = false;
-                    passButton.Visible = false;
-                    defendButton.Visible = false;
-                    uselessButton.Visible = false;
-                    attack1Button.Visible = true;
-                    attack2Button.Visible = true;
-                    attack3Button.Visible = true;
-                    attack4Button.Visible = true;
-                    switch (OrignalForm.player_Charcter)
-                    {
-                        case 1:
-                            attack1Button.Text = "Death Eyes";
-                            attack2Button.Text = "Death Hand";
-                            attack3Button.Text = "Death Sword";
-                            attack4Button.Text = "Shout";
-                            break;
-                        case 2:
-                            attack1Button.Text = "expolsion";
-                            attack2Button.Text = "Explosion";
-                            attack3Button.Text = "EXPLOSION";
-                            attack4Button.Text = "Baka";
-                            break;
-                        case 3:
-                            attack1Button.Text = "Sparks";
-                            attack2Button.Text = "Crakle";
-                            attack3Button.Text = "Lightining";
-                            attack4Button.Text = "Lizards";
-                            break;
                     }
                     break;
-                    
             }
-        }
-
-        private void attack1Button_Click(object sender, EventArgs e)
-        {
-            attackSelector = 1;
+            if (zKey == true|| attackPhase == true)
+            {
+                switch (screenSelector)
+                {
+                    case 1:
+                        e.Graphics.DrawString("Death Eyes", drawFont, drawBrush, 100, 330);
+                        drawBrush.Color = Color.SkyBlue;
+                        e.Graphics.DrawString("Death Hand", drawFont, drawBrush, 500, 330);
+                        drawBrush.Color = Color.Red;
+                        e.Graphics.DrawString("Death Sword", drawFont, drawBrush, 90, 410);
+                        drawBrush.Color = Color.Yellow;
+                        e.Graphics.DrawString("Shout", drawFont, drawBrush, 500, 410);
+                        drawBrush.Color = Color.Green;
+                        break;
+                    case 2:
+                        //attackLabel.Text = "expolsion";
+                        //defenedLabel.Text = "Explosion";
+                        //passLabel.Text = "EXPLOSION";
+                        //uselessLabel.Text = "Baka";
+                        break;
+                    case 3:
+                        //attackLabel.Text = "Sparks";
+                        //defenedLabel.Text = "Crakle";
+                        //passLabel.Text = "Lightining";
+                        //uselessLabel.Text = "Lizards";
+                        break;
+                }
+            }
+            changeScreen();
+            Refresh();
         }
     }
 }
