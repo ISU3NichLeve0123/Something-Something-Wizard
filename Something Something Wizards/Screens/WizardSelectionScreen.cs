@@ -37,10 +37,13 @@ namespace Something_Something_Wizards
             OrignalForm.player_Charcter = 1;
             Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, OrignalForm.name);
             Form f = this.FindForm();
-            GameScreen g = new GameScreen();
             f.Controls.Remove(this);
+
+            GameScreen g = new GameScreen();
+
             f.Controls.Add(g);
             g.Location = new Point((this.Width - g.Width) / 2, (this.Height - g.Height) / 2);
+            g.Focus();
            
         }
 

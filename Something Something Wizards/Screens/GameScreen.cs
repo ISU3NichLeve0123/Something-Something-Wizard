@@ -12,15 +12,17 @@ namespace Something_Something_Wizards
 {
     public partial class GameScreen : UserControl
     {
-        bool zKey, cKey, xKey, vKey, attackPhase;
-        int screenSelector = 0;
+        bool zKey, cKey, xKey, vKey, attackPhase, possibleAttacks;
         int attackSelector = 0;
+        List <Wizards> baka = new List<Wizards>();
         Pen drawPen = new Pen(Color.Black);
         Font drawFont = new Font("Arial", 30);
         SolidBrush drawBrush = new SolidBrush(Color.Green);
         Death_Wizard dk = new Death_Wizard();
+       
         Lightining_Wizard lk = new Lightining_Wizard();
         MEGAMEME_Fire_Wizard_ mega = new MEGAMEME_Fire_Wizard_();
+
         public GameScreen()
         {
             InitializeComponent();
@@ -29,41 +31,16 @@ namespace Something_Something_Wizards
 
         public void OnStart()
         {
-            //switch)
-        }
-        private void gameTimer_Tick(object sender, EventArgs e)
-        {
-
-            switch (attackSelector)
-            {
-                case 1:
-                    dk.DeathEyes();
-                    break;
-            }
-        }
-        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.C:
-                    cKey = false;
-                    break;
-                case Keys.V:
-                    vKey = false;
-                    break;
-                case Keys.X:
-                    xKey = false;
-                    break;
-                case Keys.Left:
-                    zKey = false;
-                    break;
-            }
+            //baka.Add(dk);
+            //baka.Add(lk);
+            //baka.Add(mega);
         }
 
-        private void changeScreen()
+        private void GameScreen_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            int x = 9;
         }
+
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
@@ -83,9 +60,108 @@ namespace Something_Something_Wizards
                     break;
             }
         }
-        private void GameScreen_Paint(object sender, PaintEventArgs e)
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            if (zKey == false && attackPhase == false)
+            switch (e.KeyCode)
+            {
+                case Keys.C:
+                    cKey = false;
+                    break;
+                case Keys.V:
+                    vKey = false;
+                    break;
+                case Keys.X:
+                    xKey = false;
+                    break;
+                case Keys.Z:
+                    zKey = false;
+                    break;
+            }
+        }
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+            switch (OrignalForm.player_Charcter)
+            {
+                case 1:
+                    switch (attackSelector)
+                    {
+                        case 1:
+                            dk.DeathEyes();
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (attackSelector)
+                    {
+                        case 1:
+                            //dk.DeathEyes();
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (attackSelector)
+                    {
+                        case 1:
+                            //dk.DeathEyes();
+                            break;
+                    }
+                    break;
+            }
+            Refresh();
+
+        }
+        private void attackDrawer(PaintEventArgs e)
+        {
+            //Draws what attack the player selects
+
+            if (zKey == true)
+            {
+                switch (OrignalForm.player_Charcter)
+                {
+                    case 1:
+                        e.Graphics.DrawString(dk.name + "used Death Eyes!", drawFont, drawBrush, 200, 200);
+                        e.Graphics.DrawRectangle(drawPen, dk.objectX, dk.objectY, 200, 200);
+                        break;
+                    case 2:
+                        break;
+                }
+
+            }
+            if (cKey == true)
+            {
+                switch (OrignalForm.player_Charcter)
+                {
+                    case 1:
+                        e.Graphics.DrawString(dk.name + "used Death Hand!", drawFont, drawBrush, 200, 200);
+                        break;
+                }
+            }
+            if (xKey == true)
+            {
+                switch (OrignalForm.player_Charcter)
+                {
+                    case 1:
+                        e.Graphics.DrawString(dk.name + "used Death Sword!", drawFont, drawBrush, 200, 200);
+                        break;
+                }
+            }
+            if (vKey)
+            {
+                switch (OrignalForm.player_Charcter)
+                {
+                    case 1:
+                        e.Graphics.DrawString(dk.name + "used Shout!", drawFont, drawBrush, 200, 200);
+                        break;
+                }
+            }
+
+        }
+        private void GameScreen_Paint(object sender, PaintEventArgs e)
+        {   //Message for players
+            e.Graphics.DrawString("What Will You Do?", drawFont, drawBrush, 200, 0);
+            //THis is the default phase, where pepole start out and will need to decide to go
+            if (attackPhase == false)
             {
                 e.Graphics.DrawString("Attack", drawFont, drawBrush, 100, 330);
                 drawBrush.Color = Color.SkyBlue;
@@ -96,7 +172,7 @@ namespace Something_Something_Wizards
                 e.Graphics.DrawString("Useless", drawFont, drawBrush, 500, 410);
                 drawBrush.Color = Color.Green;
             }
-
+            //Decides what Wizard to draw
             switch (OrignalForm.player_Charcter)
             {
                 case 1:
@@ -109,21 +185,11 @@ namespace Something_Something_Wizards
                     e.Graphics.DrawImage(Properties.Resources.Light_Wizard, lk.x, lk.y);
                     break;
             }
-            e.Graphics.DrawString("What Will You Do?", drawFont, drawBrush, 200, 0);
-            switch (attackSelector)
+
+            //Switches around what is drawn when attacking and based off of what wizard you selected
+            if (attackPhase == true)
             {
-                case 1:
-                    switch (OrignalForm.player_Charcter)
-                    {
-                        case 1:
-                            e.Graphics.DrawRectangle(drawPen, dk.objectX, dk.objectY, 200, 200);
-                            break;
-                    }
-                    break;
-            }
-            if (zKey == true|| attackPhase == true)
-            {
-                switch (screenSelector)
+                switch (OrignalForm.player_Charcter)
                 {
                     case 1:
                         e.Graphics.DrawString("Death Eyes", drawFont, drawBrush, 100, 330);
@@ -134,6 +200,7 @@ namespace Something_Something_Wizards
                         drawBrush.Color = Color.Yellow;
                         e.Graphics.DrawString("Shout", drawFont, drawBrush, 500, 410);
                         drawBrush.Color = Color.Green;
+                        possibleAttacks = true;
                         break;
                     case 2:
                         //attackLabel.Text = "expolsion";
@@ -149,8 +216,23 @@ namespace Something_Something_Wizards
                         break;
                 }
             }
-            changeScreen();
-            Refresh();
+            if (attackPhase == true && possibleAttacks == true)
+            {
+                switch (OrignalForm.player_Charcter)
+                {
+                    case 1:
+                        attackDrawer(e);
+                        break;
+                    case 2:
+                        attackDrawer(e);
+                        break;
+                    case 3:
+                        attackDrawer(e);
+                        break;
+                }
+            }
+
         }
     }
+
 }
