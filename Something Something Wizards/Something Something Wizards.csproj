@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Projectile.cs" />
     <Compile Include="Classes\Death Wizard.cs" />
     <Compile Include="Classes\Lightining Wizard.cs" />
     <Compile Include="Classes\MEGAMEME%28Fire Wizard%29.cs" />
