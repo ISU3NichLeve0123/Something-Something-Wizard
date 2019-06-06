@@ -35,7 +35,7 @@ namespace Something_Something_Wizards
         private void darknessWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 1;
-            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter,100, OrignalForm.name);
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, 0, 0, OrignalForm.name);
             Form f = this.FindForm();
             f.Controls.Remove(this);
             GameScreen g = new GameScreen();
@@ -49,7 +49,7 @@ namespace Something_Something_Wizards
         private void fireWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 2;
-            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter,100, OrignalForm.name);
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, 0, 0, OrignalForm.name);
             Form f = this.FindForm();
             GameScreen g = new GameScreen();
             f.Controls.Remove(this);
@@ -61,7 +61,7 @@ namespace Something_Something_Wizards
         private void lightiningWizardButton_Click(object sender, EventArgs e)
         {
             OrignalForm.player_Charcter = 3;
-            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter,100, OrignalForm.name);
+            Wizards playerWizard = new Wizards(wizardX, wizardY, mana, health, OrignalForm.player_Charcter, 0, 0, OrignalForm.name);
             Form f = this.FindForm();
             GameScreen g = new GameScreen();
             f.Controls.Remove(this);

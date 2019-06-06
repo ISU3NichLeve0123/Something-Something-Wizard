@@ -12,6 +12,8 @@ namespace Something_Something_Wizards
         {
             name = OrignalForm.name;
             wizardSelection = 2;
+            sizeX = 267;
+            sizeY = 189;
         }
         
         public void Explosion()

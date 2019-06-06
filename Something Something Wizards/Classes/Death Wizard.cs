@@ -19,20 +19,22 @@ namespace Something_Something_Wizards
         {
             name = OrignalForm.name;
             wizardSelection = 1;
-            objectX = x + 200;
-            objectY = y;
-            objectSize = 100;
+            objectX = sizeX + 100;
+            objectY = y + 50;
+            objectSize = 50;
+            sizeX = 215;
+            sizeY = 235;
         }
 
-        public void DeathEyes()
+        public void  ObjectMove()
         {
             objectX += 4;
         }
 
-        public bool Collsion(Death_Wizard MC, MEGAMEME_Fire_Wizard_ MC2)
+        public bool Collsion(Wizards dk, Wizards mega)
         {
-            Rectangle rec1 = new Rectangle(MC.x, MC.y, MC.size, MC.size);
-            Rectangle rec2 = new Rectangle(MC2.x, MC2.y, MC2.size, MC2.size);
+            Rectangle rec1 = new Rectangle(dk.x, dk.y, dk.sizeX, dk.sizeY);
+            Rectangle rec2 = new Rectangle(mega.x, mega.y, mega.sizeX, mega.sizeY);
             Rectangle rec3 = new Rectangle(objectX, objectY, objectSize, objectSize);
             if (rec3.IntersectsWith(rec2))
             {

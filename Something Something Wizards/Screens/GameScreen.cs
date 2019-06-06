@@ -12,8 +12,7 @@ namespace Something_Something_Wizards
 {
     public partial class GameScreen : UserControl
     {
-        bool zKey, cKey, xKey, vKey, attackPhase, possibleAttacks;
-        char Z;
+        bool zKey, cKey, xKey, vKey, attackPhase, possibleAttacks, attackInMotion;
         int attackSelector, timer;
         int aiSelectedCharcter = 2;
         List<Wizards> baka = new List<Wizards>();
@@ -40,15 +39,31 @@ namespace Something_Something_Wizards
                     {
                         attackPhase = true;
                     }
-                    break;
+                    if(zKey == true && cKey != true && xKey != true && vKey != true && possibleAttacks == true)
+                    {
+                        attackSelector = 1;
+                    }
+                        break;
                 case 'c':
                     cKey = true;
+                    if (cKey == true && zKey != true && xKey != true && vKey != true && possibleAttacks == true)
+                    {
+                        attackSelector = 2;
+                    }
                     break;
                 case 'v':
                     vKey = true;
+                    if (vKey == true && cKey != true && xKey != true && zKey != true && possibleAttacks == true)
+                    {
+                        attackSelector = 3;
+                    }
                     break;
                 case 'x':
                     xKey = true;
+                    if (xKey == true && cKey != true && zKey != true && vKey != true && possibleAttacks == true)
+                    {
+                        attackSelector = 4;
+                    }
                     break;
             }
         }
@@ -65,27 +80,26 @@ namespace Something_Something_Wizards
         }
 
 
-        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void GameScreen_Keyup(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.C:
-                    cKey = true;
+                    cKey = false;
                     break;
                 case Keys.V:
-                    vKey = true;
+                    vKey = false;
                     break;
                 case Keys.X:
-                    xKey = true;
+                    xKey = false;
                     break;
-                //case Keys.Z:
-                //    zKey = true;
-                //    attackPhase = true;
-                //    break;
+                case Keys.Z:
+                    zKey = false;
+                    break;
             }
         }
 
-        
+
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -96,6 +110,13 @@ namespace Something_Something_Wizards
                 mega.mana -= 3;
                 attackPhase = false;
                 possibleAttacks = false;
+                dk.objectX = dk.x + 100;
+                timer = 0;
+                attackSelector = 0;
+                if(mega.health == 0| dk.health == 0|| lk.health == 0)
+                {
+
+                }
             }
             if (possibleAttacks == true && zKey == true|| xKey == true || cKey == true|| xKey == true|| timer > 20)
             {
@@ -107,8 +128,18 @@ namespace Something_Something_Wizards
                     switch (attackSelector)
                     {
                         case 1:
-                            dk.DeathEyes();
+                            dk.ObjectMove();
                             break;
+                        case 2:
+                            dk.ObjectMove();
+                            break;
+                        case 3:
+                            dk.ObjectMove();
+                            break;
+                        case 4:
+                            dk.ObjectMove();
+                            break;
+
                     }
                     break;
                 case 2:
@@ -127,6 +158,7 @@ namespace Something_Something_Wizards
                             break;
                     }
                     break;
+
             }
             Refresh();
 
@@ -135,43 +167,54 @@ namespace Something_Something_Wizards
         {
             //Draws what attack the player selects
 
-            if (zKey == true|| timer > 0)
+            if (attackSelector == 1 && possibleAttacks == true || timer > 20 && attackInMotion == true)
             {
                 switch (OrignalForm.player_Charcter)
                 {
                     case 1:                       
-                        e.Graphics.DrawString(dk.name + "used Death Eyes!", drawFont, drawBrush, 500, 40);
-                        e.Graphics.DrawRectangle(drawPen, dk.objectX, dk.objectY, 200, 200);
+                        e.Graphics.DrawString(dk.name + " used Death Eyes!", drawFont, drawBrush, 200, 0);
+                        e.Graphics.DrawRectangle(drawPen, dk.objectX, dk.objectY, dk.objectSize, dk.objectSize);
+                        possibleAttacks = false;
+                        attackInMotion = true;
                         break;
                     case 2:
                         break;
                 }
 
             }
-            if (cKey == true || timer > 0)
+            if (attackSelector == 2 && possibleAttacks == true || timer > 20 && attackInMotion == true)
             {
                 switch (OrignalForm.player_Charcter)
                 {
                     case 1:
-                        e.Graphics.DrawString(dk.name + "used Death Hand!", drawFont, drawBrush, 200, 200);
+                        e.Graphics.DrawString(dk.name + " used Death Hand!", drawFont, drawBrush, 200, 0);
+                        e.Graphics.DrawEllipse(drawPen, dk.objectX, dk.objectY, dk.objectSize, dk.objectSize);
+                        possibleAttacks = false;
+                        attackInMotion = true;
                         break;
                 }
             }
-            if (xKey == true || timer > 0)
+            if (attackSelector == 3 && possibleAttacks == true || timer > 20 && attackInMotion == true)
             {
                 switch (OrignalForm.player_Charcter)
                 {
                     case 1:
-                        e.Graphics.DrawString(dk.name + "used Death Sword!", drawFont, drawBrush, 200, 200);
+                        e.Graphics.DrawString(dk.name + " used Death Sword!", drawFont, drawBrush, 200, 0);
+                        e.Graphics.DrawImage(Properties.Resources.Wizardry_Logo, dk.objectX, dk.objectY, dk.objectSize, dk.objectSize);
+                        possibleAttacks = false;
+                        attackInMotion = true;
                         break;
                 }
             }
-            if (vKey == true || timer > 0)
+            if (attackSelector == 4 && possibleAttacks == true || timer > 20 && attackInMotion == true)
             {
                 switch (OrignalForm.player_Charcter)
                 {
                     case 1:
-                        e.Graphics.DrawString(dk.name + "used Shout!", drawFont, drawBrush, 200, 200);
+                        e.Graphics.DrawString(dk.name + " used Shout!", drawFont, drawBrush, 200, 0);
+                        e.Graphics.DrawImage(Properties.Resources.Cat_Of_Hell, dk.objectX, dk.objectY, dk.objectSize, dk.objectSize);
+                        possibleAttacks = false;
+                        attackInMotion = true;
                         break;
                 }
             }
@@ -179,8 +222,13 @@ namespace Something_Something_Wizards
         }
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
-        {   //Message for players
-            e.Graphics.DrawString("What Will You Do?", drawFont, drawBrush, 200, 0);
+        {   if(attackSelector == 0)
+            {
+                e.Graphics.DrawString("What Will You Do?", drawFont, drawBrush, 200, 0);
+            }
+            else {}
+            //Message for players
+          
             //This is the default phase, where pepole start out and will need to decide to go
             if (attackPhase == false)
             {
@@ -196,10 +244,10 @@ namespace Something_Something_Wizards
             switch(aiSelectedCharcter)
             {
                 case 1:
-                    e.Graphics.DrawImage(Properties.Resources.FUCK_DIMA, dk.x, dk.y, dk.size, dk.size);
+                    e.Graphics.DrawImage(Properties.Resources.FUCK_DIMA, dk.x, dk.y, dk.sizeX, dk.sizeY);
                     break;
                 case 2:
-                    e.Graphics.DrawImage(Properties.Resources.Dima_is_a_shit_influence, mega.x, mega.y,mega.size,mega.size);
+                    e.Graphics.DrawImage(Properties.Resources.Dima_is_a_shit_influence, mega.x, mega.y, mega.sizeX, mega.sizeY);
                     break;
                 case 3:
                     e.Graphics.DrawImage(Properties.Resources.Light_Wizard, lk.x, lk.y);
@@ -207,18 +255,6 @@ namespace Something_Something_Wizards
             }
             //Decides what Wizard to draw
             switch (OrignalForm.player_Charcter)
-            {
-                case 1:
-                    e.Graphics.DrawImage(Properties.Resources.FUCK_DIMA, dk.x, dk.y);
-                    break;
-                case 2:
-                    e.Graphics.DrawImage(Properties.Resources.Dima_is_a_shit_influence, mega.x, mega.y);
-                    break;
-                case 3:
-                    e.Graphics.DrawImage(Properties.Resources.Light_Wizard, lk.x, lk.y);
-                    break;
-            }
-            switch (aiSelectedCharcter)
             {
                 case 1:
                     e.Graphics.DrawImage(Properties.Resources.FUCK_DIMA, dk.x, dk.y);
@@ -247,6 +283,9 @@ namespace Something_Something_Wizards
                         drawBrush.Color = Color.Green;
                         possibleAttacks = true;
                         zKey = false;
+                        cKey = false;
+                        xKey = false;
+                        vKey = false;
                         break;
                     case 2:
                         //attackLabel.Text = "expolsion";
@@ -263,25 +302,13 @@ namespace Something_Something_Wizards
                 }
             }
 
-            if (possibleAttacks == true)
+            if (possibleAttacks == true || attackInMotion == true)
             {
-                switch (OrignalForm.player_Charcter)
-                {
-                    case 1:
-                        attackSelector = 1;
-                       // possibleAttacks = false;
-                        attackDrawer(e);
-                        break;
-                    case 2:
-                        attackDrawer(e);
-                        break;
-                    case 3:
-                        attackDrawer(e);
-                        break;
-                }
+                attackDrawer(e);
+            }
             }
 
         }
     }
 
-}
+
