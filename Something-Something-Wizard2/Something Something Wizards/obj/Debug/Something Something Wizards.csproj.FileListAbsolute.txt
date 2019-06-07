@@ -1,0 +1,16 @@
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\bin\Debug\Something Something Wizards.exe.config
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\bin\Debug\Something Something Wizards.exe
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\bin\Debug\Something Something Wizards.pdb
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something Something Wizards.csprojAssemblyReference.cache
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.Properties.Resources.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.GameScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.HowToScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.MainScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.StartScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.ProfileScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.WizardSelectionScreen.resources
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something Something Wizards.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something Something Wizards.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something Something Wizards.exe
+C:\Users\User\Source\Repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something Something Wizards.pdb
+C:\Users\User\source\repos\Something-Something-Wizard2\Something Something Wizards\obj\Debug\Something_Something_Wizards.WinScreen.resources
